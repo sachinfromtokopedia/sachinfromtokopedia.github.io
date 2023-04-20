@@ -3,6 +3,16 @@
 <h1>Hello world from topads</h1>
 <script>
 
+function validateProtocol(url){
+   var parser = document.createElement("a");
+   parser.href = url; 
+   var protocol = parser.protocol.toLowerCase();
+   if ([ "javascript:", "vbscript:", "data:", "ftp:", ":", " "].indexOf(protocol) < 0) {
+      return url;}
+   return null;
+}
+
+
   window.onload = function() {
    console.log("inside on load function");
     window.top.location = validateProtocol("tokopedia://product/445225132?link_click_id=659297772693552478");
